@@ -1,31 +1,64 @@
 var map;
-  mapboxgl.accessToken =
-    "pk.eyJ1IjoianVsaWFudXN1IiwiYSI6ImNrbm56dWU3ZjEzZ2Uyb21vMXRpaHp0bDMifQ.jOaoVuPdkcgQcpgq7yHz1Q";
-  var monument = [-74.039882, 4.697129];
-document.addEventListener("DOMContentLoaded", function () {
-  map = new mapboxgl.Map({
-    container: "map-container",
-    style: "mapbox://styles/mapbox/light-v10",
-    center: monument,
-    zoom: 15,
+mapboxgl.accessToken =
+  "pk.eyJ1IjoianVsaWFudXN1IiwiYSI6ImNrbm56dWU3ZjEzZ2Uyb21vMXRpaHp0bDMifQ.jOaoVuPdkcgQcpgq7yHz1Q";
+
+var initial_point = [-74.039882, 4.697];
+
+console.info("wawawa");
+map = new mapboxgl.Map({
+  container: "map-container",
+  style: "mapbox://styles/mapbox/light-v10",
+  center: initial_point,
+  zoom: 15,
+});
+
+const template = document.getElementById("template");
+
+var point = {
+  type: "FeatureCollection",
+  features: [
+    {
+      type: "Feature",
+      properties: {},
+      geometry: {
+        type: "Point",
+        coordinates: initial_point,
+      },
+    },
+  ],
+};
+
+map.on("load", function () {
+  map.addSource("pointpos", {
+    type: "geojson",
+    data: point,
   });
 
-  // create the popup
-  var popup = new mapboxgl.Popup({ offset: 25 }).setText(
-    "Construction on the Washington Monument began in 1848."
-  );
+  map.addLayer({
+    id: "pointpos",
+    source: "pointpos",
+    type: "circle",
+    paint: {
+      "circle-radius": 10,
+      "circle-color": "#3887be",
+    },
+  });
+  add_new(-74.0393, 4.6975);
+  add_new(-74.0343, 4.6925);
+  add_new(-74.03243, 4.6825);
+});
 
-  // create DOM element for the marker
+function add_new(lat, lon) {
+  console.log("Added!");
   var el = document.createElement("div");
   el.id = "marker";
 
-  el.addEventListener("click", () => {
-    alert("Hola!");
+  el.addEventListener("click", function () {
+    var currentDiv = document.getElementById("properties-list");
+    const firstClone = template.content.cloneNode(true);
+    currentDiv.appendChild(firstClone);
+    console.log("Clicked!");
   });
 
-  // create the marker
-  new mapboxgl.Marker(el)
-    .setLngLat(monument)
-    .setPopup(popup) // sets a popup on this marker
-    .addTo(map);
-});
+  new mapboxgl.Marker(el).setLngLat([lat, lon]).addTo(map);
+}

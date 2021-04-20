@@ -3,17 +3,70 @@
   <head>
     <%- include('../partials/head'); %>
     <link rel="stylesheet" href="/css/style.css" />
-    <script src="/js/map.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css"
+    />
   </head>
-  <body class="container">
+  <body>
     <header><%- include('../partials/header'); %></header>
 
-    <main>
-      <div id="map-container"></div>
+    <main class="container">
+      <div id="realtime-search">
+        <div id="map-container"></div>
+        <div id="properties-list"></div>
+      </div>
+
+      <div class="control-container">
+        <div class="control">
+          <button class="btn btn-dark" onclick="send_mov('up')" id="btn-up" type="submit"><i class="bi bi-arrow-up"></i></button>
+        </div>
+        <div class="control">
+          <button class="btn btn-dark" onclick="send_mov('left')" id="btn-left"  type="submit"><i class="bi bi-arrow-left"></i></button>
+          <button class="btn btn-dark" onclick="send_mov('right')" id="btn-right"  type="submit"><i class="bi bi-arrow-right"></i></i></button>
+        </div>
+        <div class="control">
+          <button class="btn btn-dark" onclick="send_mov('down')" id="btn-down"  type="submit"><i class="bi bi-arrow-down"></i></button>
+        </div>
+      </div>
+      
     </main>
 
     <footer><%- include('../partials/footer'); %></footer>
 
+    <template id="template">
+      <div class="card mb-3 card-search">
+        <div class="row g-0">
+          <div class="col-md-6">
+            <img
+              class="img-search"
+              src="https://pixnio.com/free-images/2017/10/21/2017-10-21-07-59-49.jpg"
+              alt="..."
+            />
+          </div>
+          <a
+            class="card-block col-md-6 stretched-link text-decoration-none link-card"
+            href="/"
+          >
+            <div class="card-body search-result">
+              <h5 class="card-title">$120.000.000</h5>
+              <p class="card-text">
+                Apartamento en venta <br />
+                3 Hab | 1 Baños | 72 m2
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </template>
   </body>
   <script src="/js/map.js"></script>
+
+  <script
+    src="https://cdn.socket.io/3.1.3/socket.io.min.js"
+    integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh"
+    crossorigin="anonymous"
+  ></script>
+  <script src="/js/map_operations.js"></script>
+  
 </html>
