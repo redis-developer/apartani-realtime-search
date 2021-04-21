@@ -1,7 +1,6 @@
-var socket = io();
+var socket = io("ws://localhost:5000/rt-search");
 
 function send_mov(mov) {
-  socket.emit("position", "user-1", { lat: 12.3456, lon: 99.1010101 });
 
   var prevLat = point.features[0].geometry.coordinates[0];
   var prevLon = point.features[0].geometry.coordinates[1];
@@ -24,7 +23,16 @@ function send_mov(mov) {
       break;
   }
 
+  socket.emit("position", {
+    user: "juliano",
+    lat: newcoords[0],
+    lon: newcoords[1],
+  });
   point.features[0].geometry.coordinates = newcoords;
   map.getSource("pointpos").setData(point);
   map.flyTo({ center: newcoords });
 }
+
+socket.on("update_prop", function (data) {
+  console.log(data);
+});

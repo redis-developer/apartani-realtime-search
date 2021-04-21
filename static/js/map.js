@@ -62,3 +62,17 @@ function add_new(lat, lon) {
 
   new mapboxgl.Marker(el).setLngLat([lat, lon]).addTo(map);
 }
+
+//docker run -p 6379:6379 --name redis-redisjson redislabs/rejson:latest
+
+
+
+
+//docker run -p 1337:6379 --name redis-redisjson redislabs/rejson:latest --port 1337
+//redis-cli -p 3333
+
+// docker run -p 7777:7777 --name redis-redisjson redislabs/rejson:latest --port 7777
+
+//docker run -d -p 3333:3333 redislabs/redisearch:feature-search-json --port 3333
+//client setname db
+//module list
