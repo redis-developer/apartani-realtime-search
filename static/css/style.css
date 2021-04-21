@@ -7,7 +7,7 @@
   flex-direction: row;
   margin-top: 25px;
 }
-#marker {
+.marker {
   background-image: url("../img/home.png");
   background-size: cover;
   width: 40px;

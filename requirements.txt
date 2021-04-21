@@ -1,4 +1,4 @@
 redis
 flask
 flask-socketio
-requests
+rejson

@@ -1,7 +1,6 @@
 var socket = io("ws://localhost:5000/rt-search");
 
 function send_mov(mov) {
-
   var prevLat = point.features[0].geometry.coordinates[0];
   var prevLon = point.features[0].geometry.coordinates[1];
   var newcoords;
@@ -34,5 +33,10 @@ function send_mov(mov) {
 }
 
 socket.on("update_prop", function (data) {
-  console.log(data);
+  //console.log(data);
+  if (document.getElementById(data["pid"]) == null) {
+    add_new(data["pid"], data["pos"][0], data["pos"][1]);
+  }
 });
+
+send_mov("start");

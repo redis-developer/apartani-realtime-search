@@ -1,32 +1,59 @@
-import redis
-
+from rejson import Client, Path
 from flask import Flask, render_template, request, session
 from flask_socketio import SocketIO, emit
+import json
+
+rj = Client(host="127.0.0.1", port=6379, decode_responses=True)
+
+
+def addproperty(pid, img, area, rooms, lat, lon):
+    prop = {
+        "id": pid,
+        "img": img,
+        "area": area,
+        "rooms": rooms,
+    }
+    rj.jsonset(pid, Path.rootPath(), prop)
+    rj.geoadd("properties", lat, lon, pid)
+
+    return True
+
+
+def delproperty(pid):
+    rj.zrem("properties", pid)
+    rj.jsondel(pid)
+
+
+with open("data.json", "r") as data:
+    data = json.load(data)
+    for i in data:
+        addproperty(i["id"], i["img"], i["area"], i["rooms"], i["lat"], i["lon"])
+
+
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'secret!'
-socketio = SocketIO(app, message_queue='redis://')
+app.config["SECRET_KEY"] = "secret!"
+
+socketio = SocketIO()
+socketio.init_app(app, message_queue="redis://")
 
 
-
-# mgr = socketio.RedisManager('redis://')
-# sio = socketio.Server(client_manager=mgr, async_mode='threading', logger=True, engineio_logger=True)
-
-# app.wsgi_app = socketio.WSGIApp(sio, app.wsgi_app)
-
-
-@socketio.on('position', namespace='/rt-search')
+@socketio.on("position", namespace="/rt-search")
 def position(data):
     """ Called when user sends new position """
-    
+    print(f"data {data}")
 
-    emit('update_prop', request.sid, room=request.sid)
-    
-    
+    result = rj.georadius(
+        "properties", data["lat"], data["lon"], "500", "m", "WITHDIST", "WITHCOORD"
+    )
 
-@app.route('/')
+    for i in result:
+        emit("update_prop", {"pid": i[0], "dist": i[1], "pos": i[2]}, room=request.sid)
+
+
+@app.route("/")
 def index():
-    return render_template('demo/index.html')
+    return render_template("demo/index.html")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     app.run(threaded=True, debug=True)
-

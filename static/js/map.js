@@ -43,15 +43,16 @@ map.on("load", function () {
       "circle-color": "#3887be",
     },
   });
-  add_new(-74.0393, 4.6975);
-  add_new(-74.0343, 4.6925);
-  add_new(-74.03243, 4.6825);
+  add_new("asdf", -74.0393, 4.6975);
+  add_new("cabeza", -74.0343, 4.6925);
+  add_new("13ad", -74.03243, 4.6825);
 });
 
-function add_new(lat, lon) {
+function add_new(pid, lat, lon) {
   console.log("Added!");
   var el = document.createElement("div");
-  el.id = "marker";
+  el.classList = "marker";
+  el.id = pid;
 
   el.addEventListener("click", function () {
     var currentDiv = document.getElementById("properties-list");
@@ -62,17 +63,3 @@ function add_new(lat, lon) {
 
   new mapboxgl.Marker(el).setLngLat([lat, lon]).addTo(map);
 }
-
-//docker run -p 6379:6379 --name redis-redisjson redislabs/rejson:latest
-
-
-
-
-//docker run -p 1337:6379 --name redis-redisjson redislabs/rejson:latest --port 1337
-//redis-cli -p 3333
-
-// docker run -p 7777:7777 --name redis-redisjson redislabs/rejson:latest --port 7777
-
-//docker run -d -p 3333:3333 redislabs/redisearch:feature-search-json --port 3333
-//client setname db
-//module list
