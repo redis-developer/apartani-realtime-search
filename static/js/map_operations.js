@@ -33,10 +33,12 @@ function send_mov(mov) {
 }
 
 socket.on("update_prop", function (data) {
-  //console.log(data);
-  if (document.getElementById(data["pid"]) == null) {
-    add_new(data["pid"], data["pos"][0], data["pos"][1]);
-  }
+  data.forEach(element => {
+    console.log(element)
+    if (document.getElementById(element[0]) == null) {
+      add_new(element[0], element[2][0], element[2][1]);
+    }
+  });
 });
 
 send_mov("start");

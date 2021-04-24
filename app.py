@@ -45,9 +45,8 @@ def position(data):
     result = rj.georadius(
         "properties", data["lat"], data["lon"], "500", "m", "WITHDIST", "WITHCOORD"
     )
-
-    for i in result:
-        emit("update_prop", {"pid": i[0], "dist": i[1], "pos": i[2]}, room=request.sid)
+    
+    emit("update_prop", result, room=request.sid)
 
 
 @app.route("/")
@@ -56,4 +55,5 @@ def index():
 
 
 if __name__ == "__main__":
+    print("app running on http://localhost:5000")
     app.run(threaded=True, debug=True)
