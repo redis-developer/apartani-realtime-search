@@ -1,5 +1,7 @@
 # Apartani realtime-search
 
+
+## Steps to run 
 ```
 docker run -p 6379:6379 --name redis-redisjson redislabs/rejson:latest
 ```
@@ -24,4 +26,8 @@ source venv/Scripts/activate
 ```
 ```
 pip install -r requirements.txt
+```
+
+```
+py app.py
 ```

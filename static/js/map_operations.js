@@ -33,12 +33,27 @@ function send_mov(mov) {
 }
 
 socket.on("update_prop", function (data) {
-  data.forEach(element => {
-    console.log(element)
-    if (document.getElementById(element[0]) == null) {
-      add_new(element[0], element[2][0], element[2][1]);
+  
+  let newProps = [];
+
+  data.forEach((prop) => {
+    if (document.getElementById(prop[0]) == null) {
+      add_new(prop[0], prop[2][0], prop[2][1]);
     }
+    newProps.push(prop[0]);
   });
+
+  //i need to delete all houses that were added but are far away
+  const added = document.querySelectorAll('*[id^="pr-"]');
+
+  
+  for (var elem of added) {
+    if (!newProps.includes(elem.id)) {
+      
+
+      var oldProp = document.getElementById(elem.id);
+      oldProp.parentNode.removeChild(oldProp);
+    }
+  }
 });
 
-send_mov("start");

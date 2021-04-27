@@ -43,13 +43,11 @@ map.on("load", function () {
       "circle-color": "#3887be",
     },
   });
-  add_new("asdf", -74.0393, 4.6975);
-  add_new("cabeza", -74.0343, 4.6925);
-  add_new("13ad", -74.03243, 4.6825);
+  
 });
 
 function add_new(pid, lat, lon) {
-  console.log("Added!");
+  
   var el = document.createElement("div");
   el.classList = "marker";
   el.id = pid;
@@ -58,7 +56,7 @@ function add_new(pid, lat, lon) {
     var currentDiv = document.getElementById("properties-list");
     const firstClone = template.content.cloneNode(true);
     currentDiv.appendChild(firstClone);
-    console.log("Clicked!");
+    
   });
 
   new mapboxgl.Marker(el).setLngLat([lat, lon]).addTo(map);
