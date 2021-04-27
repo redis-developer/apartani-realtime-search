@@ -13,7 +13,8 @@ def creator(pid):
         "area": int(random.uniform(10, 100)),
         "rooms": int(random.uniform(1, 5)),
         "lat" : -74.039882+random.uniform(-0.05, 0.05),
-        "lon" : 4.6971232+random.uniform(-0.05, 0.05)
+        "lon" : 4.6971232+random.uniform(-0.05, 0.05),
+        "price" : int(random.uniform(120, 500))*1000
     })
 
 for i in range(1, 2000):

@@ -6,16 +6,16 @@ function send_mov(mov) {
   var newcoords;
   switch (mov) {
     case "up":
-      newcoords = [prevLat, prevLon + 0.00015];
+      newcoords = [prevLat, prevLon + 0.0003];
       break;
     case "down":
-      newcoords = [prevLat, prevLon - 0.00015];
+      newcoords = [prevLat, prevLon - 0.0003];
       break;
     case "left":
-      newcoords = [prevLat - 0.00015, prevLon];
+      newcoords = [prevLat - 0.0003, prevLon];
       break;
     case "right":
-      newcoords = [prevLat + 0.00015, prevLon];
+      newcoords = [prevLat + 0.0003, prevLon];
       break;
     default:
       newcoords = [prevLat, prevLon];
@@ -38,22 +38,19 @@ socket.on("update_prop", function (data) {
 
   data.forEach((prop) => {
     if (document.getElementById(prop[0]) == null) {
-      add_new(prop[0], prop[2][0], prop[2][1]);
+      add_new(prop[0],  prop[1][0], prop[1][1]);
     }
+    
     newProps.push(prop[0]);
   });
 
   //i need to delete all houses that were added but are far away
   const added = document.querySelectorAll('*[id^="pr-"]');
 
-  
   for (var elem of added) {
     if (!newProps.includes(elem.id)) {
-      
-
       var oldProp = document.getElementById(elem.id);
       oldProp.parentNode.removeChild(oldProp);
     }
   }
 });
-

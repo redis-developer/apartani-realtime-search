@@ -43,7 +43,8 @@ def position(data):
     print(f"data {data}")
 
     result = rj.georadius(
-        "properties", data["lat"], data["lon"], "500", "m", "WITHDIST", "WITHCOORD"
+        # I need to leave the "" to dont get the distances 
+        "properties", data["lat"], data["lon"], "500", "m", "", "WITHCOORD"
     )
     
     emit("update_prop", result, room=request.sid)

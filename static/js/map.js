@@ -4,7 +4,7 @@ mapboxgl.accessToken =
 
 var initial_point = [-74.039882, 4.697];
 
-console.info("wawawa");
+console.info("Started map");
 map = new mapboxgl.Map({
   container: "map-container",
   style: "mapbox://styles/mapbox/light-v10",
@@ -43,8 +43,33 @@ map.on("load", function () {
       "circle-color": "#3887be",
     },
   });
-  
 });
+
+let selectionId = "";
+
+function create_template(description) {
+  const selection = template.content.cloneNode(true);
+  selection.querySelector("#selection-title").innerText = description;
+
+  return selection;
+}
+
+function replace_selection(newSelection) {
+  var propertySelection = document.getElementById("properties-list");
+
+  const selection = create_template(newSelection);
+
+  if (selectionId == "") {
+    propertySelection.appendChild(selection);
+    document.getElementById(newSelection).classList.add("marker-selected")
+  } else {
+    document.getElementById(newSelection).classList.add("marker-selected")
+    document.getElementById(selectionId).classList.remove("marker-selected")
+    propertySelection.innerHTML = null;
+    propertySelection.appendChild(selection);
+  }
+  selectionId = newSelection;
+}
 
 function add_new(pid, lat, lon) {
   
@@ -53,10 +78,7 @@ function add_new(pid, lat, lon) {
   el.id = pid;
 
   el.addEventListener("click", function () {
-    var currentDiv = document.getElementById("properties-list");
-    const firstClone = template.content.cloneNode(true);
-    currentDiv.appendChild(firstClone);
-    
+    replace_selection(el.id);
   });
 
   new mapboxgl.Marker(el).setLngLat([lat, lon]).addTo(map);
