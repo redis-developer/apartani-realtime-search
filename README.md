@@ -1,5 +1,6 @@
-# Apartani realtime-search
+# Apartani realtime search
 
+Real time house search using Socket.io, Flask and Redis JSON database
 
 ## Steps to run 
 
