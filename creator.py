@@ -1,7 +1,11 @@
+## This script creates random properties
+
+
 import json
 import string
 import random
 data = []
+
 
 letters = string.ascii_lowercase
 
@@ -23,10 +27,3 @@ for i in range(1, 2000):
 
 with open('data.json', 'w') as outfile:
     json.dump(data, outfile)
-
-# import json
-
-# with open('data.json', 'r') as data:
-#     data = json.load(data)
-#     for i in data:
-#         print(i["id"])

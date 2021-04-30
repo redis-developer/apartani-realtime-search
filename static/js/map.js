@@ -55,6 +55,14 @@ function create_template(description) {
 }
 
 function replace_selection(newSelection) {
+  
+
+  socket.emit("property", {
+    user: "example",
+    selection: newSelection
+  });
+
+
   var propertySelection = document.getElementById("properties-list");
 
   const selection = create_template(newSelection);
