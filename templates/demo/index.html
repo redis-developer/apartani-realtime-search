@@ -52,7 +52,7 @@
         </div>
       </div>
 
-      <div class="control-container">
+      <div class="control-container p-2">
         <div class="control">
           <button class="btn btn-dark" onclick="send_mov('up')" id="btn-up" type="submit"><i class="bi bi-arrow-up"></i></button>
         </div>
@@ -73,8 +73,9 @@
       <div class="row g-0">
         <div class="col-md-6">
           <img
+          id="selection-img"
             class="img-search"
-            src="https://pixnio.com/free-images/2017/10/21/2017-10-21-07-59-49.jpg"
+            src=""
             alt="..."
           />
         </div>
@@ -83,10 +84,11 @@
           href="/"
         >
           <div class="card-body search-result">
-            <h5 class="card-title">$120.000.000</h5>
+            <h5 id="selection-price" class="card-title">$---.---</h5>
             <p class="card-text">
-              <span id="selection-title">...</span><br />
-              3 Hab | 1 Baños | 72 m2
+              <span id="selection-title">Apartment for sale</span><br />
+              <span id="selection-rooms">-</span> Rooms | <span id="selection-bathrooms">-</span> Bathrooms | <span id="selection-area">-</span> m²
+                
             </p>
           </div>
         </a>

@@ -6,16 +6,16 @@ function send_mov(mov) {
   var newcoords;
   switch (mov) {
     case "up":
-      newcoords = [prevLat, prevLon + 0.0003];
+      newcoords = [prevLat, prevLon + 0.0002];
       break;
     case "down":
-      newcoords = [prevLat, prevLon - 0.0003];
+      newcoords = [prevLat, prevLon - 0.0002];
       break;
     case "left":
-      newcoords = [prevLat - 0.0003, prevLon];
+      newcoords = [prevLat - 0.0002, prevLon];
       break;
     case "right":
-      newcoords = [prevLat + 0.0003, prevLon];
+      newcoords = [prevLat + 0.0002, prevLon];
       break;
     default:
       newcoords = [prevLat, prevLon];

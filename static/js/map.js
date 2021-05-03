@@ -47,9 +47,9 @@ map.on("load", function () {
 
 let selectionId = "";
 
-function create_template(description) {
+function create_template(selection_id) {
   const selection = template.content.cloneNode(true);
-  selection.querySelector("#selection-title").innerText = description;
+  //selection.querySelector(SomeId).innerText = selection_id;
 
   return selection;
 }

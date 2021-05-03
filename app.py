@@ -14,7 +14,7 @@ def getproperty(pid):
     return prop
 
 
-def addproperty(pid, img, price, area, rooms, lat, lon):
+def addproperty(pid, img, price, area, rooms, baths, lat, lon):
     """ Adds each property to Redis JSON """
     prop = {
         "id": pid,
@@ -22,6 +22,7 @@ def addproperty(pid, img, price, area, rooms, lat, lon):
         "price": price,
         "area": area,
         "rooms": rooms,
+        "baths": baths
     }
     # adds json object
     rj.jsonset(pid, Path.rootPath(), prop)
@@ -40,7 +41,7 @@ with open("data.json", "r") as data:
     data = json.load(data)
     for i in data:
         addproperty(
-            i["id"], i["img"], i["price"], i["area"], i["rooms"], i["lat"], i["lon"]
+            i["id"], i["img"], i["price"], i["area"], i["rooms"], i["baths"], i["lat"], i["lon"]
         )
 
 
@@ -93,5 +94,6 @@ def index():
 
 # Start app
 if __name__ == "__main__":
-    app.run(threaded=True, debug=True)
-    print("App running on http://localhost:5000")
+
+    #Go to http://localhost:5000
+    app.run(threaded=True, debug=True, host="localhost")
