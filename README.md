@@ -42,5 +42,7 @@ pip install -r requirements.txt
 py app.py
 ```
 ### 7. View the app
-Go to localhost:5000
+```
+localhost:5000
+```
 ![Animation](Animation.gif)
