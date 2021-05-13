@@ -91,9 +91,14 @@ def property(data):
 def index():
     return render_template("demo/index.html")
 
+# About Route
+@app.route("/about")
+def about():
+    return render_template("demo/about.html")
+
 
 # Start app
 if __name__ == "__main__":
 
-    #Go to http://localhost:5000
-    app.run(threaded=True, debug=True, host="localhost")
+    #Go to http://localhost:5000 😊
+    socketio.run(app, debug=True, host="localhost")

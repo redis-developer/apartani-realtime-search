@@ -7,7 +7,7 @@ var initial_point = [-74.039882, 4.697];
 console.info("Started map");
 map = new mapboxgl.Map({
   container: "map-container",
-  style: "mapbox://styles/mapbox/light-v10",
+  style: "mapbox://styles/mapbox/streets-v10",
   center: initial_point,
   zoom: 15,
 });
@@ -47,15 +47,14 @@ map.on("load", function () {
 
 let selectionId = "";
 
-function create_template(selection_id) {
+function create_template() {
   const selection = template.content.cloneNode(true);
-  //selection.querySelector(SomeId).innerText = selection_id;
 
   return selection;
 }
 
 function replace_selection(newSelection) {
-  
+
 
   socket.emit("property", {
     user: "example",
@@ -65,7 +64,7 @@ function replace_selection(newSelection) {
 
   var propertySelection = document.getElementById("properties-list");
 
-  const selection = create_template(newSelection);
+  const selection = create_template();
 
   if (selectionId == "") {
     propertySelection.appendChild(selection);
@@ -80,7 +79,7 @@ function replace_selection(newSelection) {
 }
 
 function add_new(pid, lat, lon) {
-  
+
   var el = document.createElement("div");
   el.classList = "marker";
   el.id = pid;

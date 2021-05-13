@@ -17,7 +17,7 @@ socket.on("property_result", function (data) {
   document.getElementById("selection-img").src = stockImages[numClicks];
   //Loop over stock images
   numClicks++;
-  if (numClicks >= stockImages.length ) {
-      numClicks = 0
+  if (numClicks >= stockImages.length) {
+    numClicks = 0
   }
 });
