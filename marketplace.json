@@ -12,11 +12,12 @@
     "deploy_buttons": [],
     "language": ["Python", "JavaScript"],
     "redis_commands": ["GEORADIUS"], 
-    "redis_features": ["caching"],
+    "redis_features": ["caching", "json"],
     "redis_modules": ["RedisJSON"], 
     "app_image_urls": [
+        "https://i.ibb.co/T27Kwj0/home.png"
     ], 
-    "youtube_url": "", 
+    "youtube_url": "https://www.youtube.com/watch?v=5GfeurLWDrU", 
     "special_tags": ["Hackathon"], 
     "verticals": ["Real Estate", "Financial"],  
     "markdown": "https://github.com/julian4u0/apartani-realtime-search/blob/main/README.md"
