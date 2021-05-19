@@ -48,3 +48,6 @@ localhost:5000
 _the web app was designed for mobile view_
 
 ![Animation](Animation.gif)
+
+Icons made by [Freepik](https://www.freepik.com) from [Flaticon](https://www.flaticon.com/)
+
