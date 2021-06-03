@@ -49,5 +49,7 @@ _the web app was designed for mobile view_
 
 ![Animation](Animation.gif)
 
+[Demo video of my app](https://www.youtube.com/watch?v=5GfeurLWDrU)
+
 Icons made by [Freepik](https://www.freepik.com) from [Flaticon](https://www.flaticon.com/)
 
