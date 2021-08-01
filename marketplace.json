@@ -6,6 +6,7 @@
     "type": "Full App",
     "contributed_by": "Community", 
     "repo_url": "https://github.com/julian4u0/apartani-realtime-search", 
+    "preview_image_url": "https://raw.githubusercontent.com/redis-developer/apartani-realtime-search/master/images/app_preview_image.png",
     "download_url": "",
     "hosted_url": "", 
     "quick_deploy": "false",
