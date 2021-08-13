@@ -1,5 +1,5 @@
 {
-    "app_name": "Apartani realtime search",  
+    "app_name": "Apartani Realtime Search",  
     "description": "Real-time house search using Socket.io, Flask and RedisJSON database", 
     "rank": "487",
     "type": "Full App",
