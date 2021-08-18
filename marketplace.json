@@ -19,6 +19,6 @@
     ], 
     "youtube_url": "https://www.youtube.com/watch?v=zz2HjVrYfNE", 
     "special_tags": ["Hackathon"], 
-    "verticals": ["Financial Services"],  
+    "verticals": ["Financial-Services"],  
     "markdown": "https://raw.githubusercontent.com/redis-developer/apartani-realtime-search/main/README.md"
 }
