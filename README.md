@@ -37,11 +37,21 @@ source venv/Scripts/activate
 ```
 pip install -r requirements.txt
 ```
-### 6. Run the app!
+### 6. Install the required modules
+
 ```
-py app.py
+pip install flask
+pip install rejson
 ```
-### 7. View the app
+
+### 7. Run the app
+
+```
+python app.py
+```
+
+### 8. View the app
+
 ```
 localhost:5000
 ```
