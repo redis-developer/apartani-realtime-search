@@ -12,7 +12,7 @@ docker run -p 6379:6379 --name redis-redisjson redislabs/rejson:latest
 
 ### 2. Clone this repository
 ```
-git clone https://github.com/julian4u0/apartani-realtime-search.git
+git clone https://github.com/redis-developer/apartani-realtime-search.git
 ```
 
 ```
