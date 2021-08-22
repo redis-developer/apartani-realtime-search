@@ -42,6 +42,7 @@ pip install -r requirements.txt
 ```
 pip install flask
 pip install rejson
+pip install flask_socketio
 ```
 
 ### 7. Run the app
