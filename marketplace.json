@@ -1,24 +1,38 @@
 {
-    "app_name": "Apartani Realtime Search",  
-    "description": "Real-time house search using Socket.io, Flask and RedisJSON database", 
+    "app_name": "Apartani Realtime Search",
+    "description": "Real-time house search using Socket.io, Flask and Redis",
     "rank": "390",
     "type": "Full App",
-    "contributed_by": "Community", 
-    "repo_url": "https://github.com/redis-developer/apartani-realtime-search", 
+    "contributed_by": "Community",
+    "repo_url": "https://github.com/redis-developer/apartani-realtime-search",
     "preview_image_url": "https://raw.githubusercontent.com/redis-developer/apartani-realtime-search/master/images/app_preview_image.png",
     "download_url": "https://github.com/redis-developer/apartani-realtime-search/archive/refs/heads/main.zip",
-    "hosted_url": "", 
+    "hosted_url": "",
     "quick_deploy": "false",
     "deploy_buttons": [],
-    "language": ["Python", "JavaScript"],
-    "redis_commands": ["GeoRadius"], 
-    "redis_features": ["Caching", "JSON"],
-    "redis_modules": ["RedisJSON"], 
+    "language": [
+        "Python",
+        "JavaScript"
+    ],
+    "redis_commands": [
+        "GeoRadius"
+    ],
+    "redis_use_cases": [
+        "Caching",
+        "JSON"
+    ],
+    "redis_features": [
+        "JSON"
+    ],
     "app_image_urls": [
         "https://i.ibb.co/T27Kwj0/home.png"
-    ], 
-    "youtube_url": "https://www.youtube.com/watch?v=zz2HjVrYfNE", 
-    "special_tags": ["Hackathon"], 
-    "verticals": ["Financial Services"],  
+    ],
+    "youtube_url": "https://www.youtube.com/watch?v=zz2HjVrYfNE",
+    "special_tags": [
+        "Hackathon"
+    ],
+    "verticals": [
+        "Financial Services"
+    ],
     "markdown": "https://raw.githubusercontent.com/redis-developer/apartani-realtime-search/main/README.md"
 }
